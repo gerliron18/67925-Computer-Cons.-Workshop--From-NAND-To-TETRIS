@@ -1,0 +1,11 @@
+class Main{
+	method void blaBla(){
+	var int index;
+	let index = 0;
+
+    if ((index = 0) & (Math.multiply(Math.multiply(1,1),-1) = Math.multiply(1,-1))) {
+    return;
+    }
+    return;
+	}
+}

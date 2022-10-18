@@ -1,0 +1,9 @@
+function Main.main 4
+push constant 1
+neg
+pop local 3
+push constant 0
+pop local 1
+label L1_0
+push local 3
+push local 1

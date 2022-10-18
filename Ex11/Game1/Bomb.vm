@@ -1,0 +1,185 @@
+function Bomb.new 0
+push constant 5
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push argument 1
+pop this 1
+push argument 2
+pop this 2
+push argument 3
+pop this 4
+push constant 255
+pop static 0
+push pointer 0
+return
+function Bomb.draw_Bomb 0
+push argument 0
+pop pointer 0
+push argument 3
+call Screen.setColor 1
+pop temp 0
+push argument 1
+push argument 2
+push this 2
+call Screen.drawCircle 3
+pop temp 0
+push constant 0
+return
+function Bomb.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+push this 0
+push this 1
+push constant 0
+call Bomb.draw_Bomb 4
+pop temp 0
+push argument 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function Bomb.draw 0
+push argument 0
+pop pointer 0
+push pointer 0
+push this 0
+push this 1
+push constant 1
+neg
+call Bomb.draw_Bomb 4
+pop temp 0
+push constant 0
+return
+function Bomb.move 1
+push argument 0
+pop pointer 0
+push this 1
+pop local 0
+push this 1
+push this 4
+add
+push static 0
+push this 2
+sub
+lt
+not
+if-goto L1_0
+push this 1
+push this 4
+add
+pop this 1
+goto L2_0
+label L1_0
+push pointer 0
+push this 0
+push local 0
+push constant 0
+call Bomb.draw_Bomb 4
+pop temp 0
+push constant 0
+return
+label L2_0
+push pointer 0
+push this 0
+push local 0
+push constant 0
+call Bomb.draw_Bomb 4
+pop temp 0
+push pointer 0
+push this 0
+push this 1
+push constant 1
+neg
+call Bomb.draw 4
+pop temp 0
+push constant 1
+neg
+return
+function Bomb.inYMargine 1
+push argument 0
+pop pointer 0
+push argument 2
+push constant 2
+call Math.divide 2
+pop local 0
+push this 1
+push this 2
+add
+push argument 1
+push local 0
+sub
+gt
+push this 1
+push this 2
+sub
+push argument 1
+push local 0
+add
+lt
+and
+not
+if-goto L1_1
+push constant 1
+neg
+return
+goto L2_1
+label L1_1
+label L2_1
+push this 1
+push this 2
+sub
+push argument 1
+push local 0
+add
+lt
+push this 1
+push this 2
+add
+push argument 1
+push local 0
+sub
+gt
+and
+not
+if-goto L1_2
+push constant 1
+neg
+return
+goto L2_2
+label L1_2
+label L2_2
+push constant 0
+return
+function Bomb.inXMargine 2
+push argument 0
+pop pointer 0
+push argument 2
+push constant 2
+call Math.divide 2
+pop local 0
+push argument 1
+pop local 1
+push this 0
+push local 1
+push local 0
+add
+lt
+push this 0
+push local 1
+push local 0
+sub
+gt
+and
+not
+if-goto L1_3
+push constant 1
+neg
+return
+goto L2_3
+label L1_3
+label L2_3
+push constant 0
+return

@@ -1,0 +1,28 @@
+function Main.blaBla 1
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+push local 0
+push constant 0
+eq
+push constant 1
+push constant 1
+call Math.multiply 2
+push constant 1
+neg
+call Math.multiply 2
+push constant 1
+push constant 1
+neg
+call Math.multiply 2
+eq
+and
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+return
+label IF_FALSE0
+push constant 0
+return
