@@ -1,0 +1,62 @@
+function Main.main 4
+push constant 20
+pop local 1
+push local 1
+call Array.new 1
+pop local 0
+push constant 0
+pop local 2
+label L1_0
+push local 2
+push local 1
+lt
+not
+if-goto L2_0
+push local 0
+push local 2
+add
+push local 2
+push constant 3
+call Math.multiply 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 2
+push constant 1
+add
+pop local 2
+goto L1_0
+label L2_0
+push constant 0
+pop local 2
+push constant 0
+pop local 3
+label L1_1
+push local 2
+push local 1
+lt
+not
+if-goto L2_1
+push local 3
+push local 0
+push local 2
+add
+pop pointer 1
+push that 0
+add
+pop local 3
+push local 2
+push constant 1
+add
+pop local 2
+goto L1_1
+label L2_1
+push constant 20000
+push local 3
+push local 1
+call Math.divide 2
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
