@@ -1,0 +1,25 @@
+nitzan.haim, gerliron18
+===============================================================================
+Nitzan Haim, ID 315855189, nitzan.haim@mail.huji.ac.il
+Liron Gershuny, ID 308350503, liron.gershuny@mail.huji.ac.il
+===============================================================================
+
+                           Project 03 - Sequential Logic
+                           -----------------------------
+  
+
+Submitted Files
+---------------
+README - This file.
+Bit.hdl - The Bit chip.
+PC.hdl - The PC chip.
+RAM8.hdl - The RAM8 chip.
+RAM64.hdl - The RAM64 chip.
+Register.hdl - The Register chip.
+RAM4K.hdl - The RAM4K chip.
+RAM16K.hdl - The RAM16K chip.
+RAM512.hdl - The RAM512 chip.
+
+Remarks
+-------
+* Any remark you may have!
