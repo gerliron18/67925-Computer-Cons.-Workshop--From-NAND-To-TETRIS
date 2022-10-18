@@ -1,0 +1,129 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/Memory.jack
+
+/**
+ * This library provides two services: direct access to the computer's main
+ * memory (RAM), and allocation and recycling of memory blocks. The Hack RAM
+ * consists of 32,768 words, each holding a 16-bit binary number.
+ */ 
+class Memory {
+    static Array freeList;
+    static Array ram;
+    static Array heap;
+
+    /** Initializes the class. */
+    function void init() {
+        let ram = 0;
+        let heap = 2048;
+        let heap[0] = 14335; //length
+        let heap[1] = -1; //next
+        let freeList = 2048;
+
+        return;
+    }
+
+    /** Returns the RAM value at the given address. */
+    function int peek(int address) {
+        return ram[address];
+    }
+
+    /** Sets the RAM value at the given address to the given value. */
+    function void poke(int address, int value) {
+        let ram[address] = value;
+        return;
+    }
+
+    /** Finds an available RAM block of the given size and returns
+     *  a reference to its base address. */
+    function int alloc(int size) {
+        var int segmentSize;
+        var int segmentNext;
+        var int curSegment;
+        var int prevSegment;
+        var int block;
+
+        let segmentSize = freeList[0];
+        let segmentNext = freeList[1];
+        let curSegment = freeList;
+        let prevSegment = -1;
+
+        while((~(segmentSize > size)) | (curSegment = -1)){
+            let prevSegment = curSegment;
+            let curSegment = segmentNext;
+            let segmentSize = ram[segmentNext];
+            let segmentNext = ram[segmentNext + 1];
+        }
+
+        if(segmentSize > (size + 1)){
+            let block = curSegment + segmentSize - size;
+            let ram[curSegment] = segmentSize - (size + 1);
+
+            let ram[block - 1] = (size + 1);
+            return block;
+        }
+        if(segmentSize = (size + 1)){
+            if(prevSegment = -1){ //found first segment in freeList
+                let block = (curSegment + 1);
+                let freeList = segmentNext;
+
+                let ram[block - 1] = (size + 1);
+                return block;
+            }
+            else{ //segment found is not the first
+                let block = (curSegment + 1);
+                let prevSegment = segmentNext;
+
+                let ram[block - 1] = (size + 1);
+                return block;
+            }
+        }
+
+        return -1;
+    }
+
+    /** De-allocates the given object (cast as an array) by making
+     *  it available for future allocations. */
+    function void deAlloc(Array o) {
+        var int newSegment;
+        var int curSegment;
+        var int prevSegment;
+
+        let newSegment = o - 1;
+        let curSegment = freeList;
+        let prevSegment = -1;
+
+        while(~(curSegment = -1)){
+            let prevSegment = curSegment;
+            let curSegment = ram[curSegment + 1];
+        }
+
+        let ram[prevSegment + 1] = newSegment;
+        let ram[o] = -1;
+        return;
+    }
+
+    /**If the parameter is an Array, the function returns the maximal element
+     * contained in the Array.
+     * If the parameter is an object, the function returns the maximal field
+     * of the object. */
+    function int max(Array o){
+        var int max;
+        var int arrayLength;
+        var int index;
+
+        let arrayLength = ram[o - 1];
+        let max = ram[o];
+        let index = 0;
+
+        while(index < arrayLength){
+            if(max < ram[o[index]]){
+                let max = ram[o[index]];
+            }
+            let index = index + 1;
+        }
+
+        return max;
+    }
+}
