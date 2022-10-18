@@ -1,0 +1,22 @@
+nitzan.haim, gerliron18
+===============================================================================
+Nitzan Haim, ID 315855189, nitzan.haim@mail.huji.ac.il
+Liron Gershuny, ID 308350503, liron.gershuny@mail.huji.ac.il
+===============================================================================
+
+                           Project 06 - Assembler
+                           ----------------------
+  
+
+Submitted Files
+---------------
+README - This file.
+Assembler.py - Assembler program that translates programs written in the 
+			   symbolic Hack assembly language into binary code that can 
+			   execute on the Hack hardware platform built in the previous projects.
+Assembler
+Makefile
+
+Remarks
+-------
+* Any remark you may have!
