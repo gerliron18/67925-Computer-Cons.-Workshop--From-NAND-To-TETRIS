@@ -1,0 +1,49 @@
+function IfLong.nlaBal 3
+push argument 0
+pop pointer 0
+push argument 2
+push local 0
+add
+push local 1
+push local 2
+sub
+gt
+push argument 2
+push local 0
+sub
+push local 1
+push local 2
+add
+lt
+and
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+not
+return
+label IF_FALSE0
+push argument 2
+push local 0
+sub
+push local 1
+push local 2
+add
+lt
+push argument 2
+push local 0
+add
+push local 1
+push local 2
+sub
+gt
+and
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+not
+return
+label IF_FALSE1
+push constant 0
+return

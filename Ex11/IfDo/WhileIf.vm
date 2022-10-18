@@ -1,0 +1,23 @@
+function WhileIf.main 2
+push argument 0
+pop pointer 0
+label L1_0
+push local 0
+push local 1
+gt
+not
+if-goto L2_0
+push local 1
+push constant 0
+gt
+not
+if-goto L1_1
+push local 1
+pop local 1
+goto L2_1
+label L1_1
+label L2_1
+goto L1_0
+label L2_0
+push constant 0
+return

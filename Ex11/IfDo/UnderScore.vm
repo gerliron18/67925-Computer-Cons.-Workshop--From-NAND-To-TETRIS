@@ -1,0 +1,7 @@
+function UnderScore.blaBla 2
+push argument 0
+pop pointer 0
+push local 0
+pop local 1
+push constant 0
+return

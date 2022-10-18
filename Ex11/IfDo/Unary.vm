@@ -1,0 +1,17 @@
+function Unary.blaBla 2
+push argument 0
+pop pointer 0
+push constant 5
+pop local 1
+push constant 9
+neg
+pop local 0
+push local 1
+neg
+pop local 0
+push local 0
+not
+pop local 1
+push local 1
+neg
+return

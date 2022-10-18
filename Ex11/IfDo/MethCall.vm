@@ -1,0 +1,11 @@
+function MethCall.blaBla 3
+push argument 0
+pop pointer 0
+push local 2
+push local 1
+push local 0
+call String.charAt 2
+call String.appendChar 2
+pop local 2
+push local 0
+return

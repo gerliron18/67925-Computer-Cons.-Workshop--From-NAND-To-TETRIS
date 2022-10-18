@@ -1,0 +1,12 @@
+function FunBegin.blaBla 2
+push local 1
+pop local 1
+push constant 2
+call String.new 1
+push constant 83
+call String.appendChar 2
+push constant 49
+call String.appendChar 2
+pop local 0
+push constant 0
+return

@@ -1,0 +1,84 @@
+function OpAndOp.main 4
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+push constant 2
+pop local 1
+push constant 10
+pop local 2
+push local 1
+not
+push local 0
+not
+and
+pop local 3
+push local 2
+not
+push local 1
+not
+or
+pop local 3
+push local 1
+not
+push local 2
+not
+lt
+pop local 3
+push local 1
+not
+push local 2
+not
+gt
+pop local 3
+push local 1
+not
+push local 2
+not
+eq
+pop local 3
+push constant 81
+not
+push local 0
+not
+and
+pop local 3
+push constant 81
+not
+push local 1
+not
+or
+pop local 3
+push constant 81
+not
+push local 2
+not
+lt
+pop local 3
+push constant 81
+not
+push local 2
+not
+gt
+pop local 3
+push constant 81
+not
+push local 2
+not
+eq
+pop local 3
+push local 0
+push constant 113
+eq
+not
+push local 0
+push constant 81
+eq
+not
+push local 1
+not
+and
+and
+pop local 3
+push constant 0
+return

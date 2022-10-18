@@ -1,0 +1,31 @@
+function IfDo.blaBla 0
+push argument 0
+pop pointer 0
+push argument 1
+push argument 2
+gt
+not
+if-goto L1_0
+push argument 1
+push argument 2
+sub
+pop argument 1
+goto L2_0
+label L1_0
+push argument 2
+push argument 1
+sub
+pop argument 2
+label L2_0
+push argument 1
+push argument 2
+push argument 1
+push argument 2
+add
+push argument 2
+push argument 1
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return

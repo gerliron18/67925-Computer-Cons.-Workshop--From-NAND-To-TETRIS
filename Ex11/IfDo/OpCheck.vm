@@ -1,0 +1,31 @@
+function OpCheck.main 4
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+push constant 2
+pop local 1
+push constant 10
+pop local 2
+push local 1
+push local 0
+and
+pop local 3
+push local 2
+push local 1
+or
+pop local 3
+push local 1
+push local 2
+lt
+pop local 3
+push local 1
+push local 2
+gt
+pop local 3
+push local 1
+push local 2
+eq
+pop local 3
+push constant 0
+return

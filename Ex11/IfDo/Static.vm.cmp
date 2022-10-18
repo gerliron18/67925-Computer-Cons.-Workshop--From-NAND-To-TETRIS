@@ -1,0 +1,5 @@
+function Static.main 1
+push local 0
+pop local 0
+push constant 0
+return

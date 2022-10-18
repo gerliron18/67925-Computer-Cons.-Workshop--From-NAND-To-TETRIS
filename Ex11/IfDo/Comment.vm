@@ -1,0 +1,11 @@
+function Comment.blaBla 2
+push argument 0
+pop pointer 0
+push constant 1
+pop local 0
+push constant 10
+pop local 0
+push constant 15
+pop local 0
+push constant 0
+return
