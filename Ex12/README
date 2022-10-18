@@ -1,0 +1,28 @@
+nitzan.haim, gerliron18
+===============================================================================
+Nitzan Haim, ID 315855189, nitzan.haim@mail.huji.ac.il
+Liron Gershuny, ID 308350503, liron.gershuny@mail.huji.ac.il
+===============================================================================
+
+                           Project 12 - Operating System
+                           -----------------------------
+  
+
+Submitted Files
+---------------
+README - This file.
+Array.jack - Represents an array.
+Sys.jack - A library that supports various program execution services.
+String.jack - Represents character strings.
+Keyboard.jack - A library for handling user input from the keyboard.
+Output.jack - A library of functions for writing text on the screen.
+Math.jack - A library of commonly used mathematical functions.
+Memory.jack - This library provides two services: direct access
+              to the computer's main memory (RAM), and allocation
+              and recycling of memory blocks.
+Screen.jack - A library of functions for displaying graphics on the screen.
+
+
+Remarks
+-------
+None.
