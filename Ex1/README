@@ -1,0 +1,32 @@
+nitzan.haim, gerliron18
+===============================================================================
+Nitzan Haim, ID 315855189, nitzan.haim@mail.huji.ac.il
+Liron Gershuny, ID 308350503, liron.gershuny@mail.huji.ac.il
+===============================================================================
+
+                           Project 01 - Boolean Logic
+                           --------------------------
+  
+
+Submitted Files
+---------------
+README - This file.
+And.hdl - The And chip.
+And16.hdl - The And16 chip.
+DMux.hdl - The DMux chip.
+DMux4Way.hdl - The DMux4Way chip.
+DMux8Way.hdl - The DMux8Way chip.
+Mux.hdl - The Mux chip.
+Mux4Way16.hdl - The DMux4Way16 chip.
+Mux8Way16.hdl - The DMux8Way16 chip.
+Mux16.hdl - The Mux16 chip.
+Not.hdl - The Not chip.
+Not16.hdl - The Not16 chip.
+Or.hdl - The Or chip.
+Or8Way.hdl - The Or8Way chip.
+Or16.hdl - The Or16 chip.
+Xor.hdl - The Xor chip.
+
+Remarks
+-------
+* Any remark you may have!
