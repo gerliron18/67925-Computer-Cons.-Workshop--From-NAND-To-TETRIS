@@ -1,0 +1,26 @@
+nitzan.haim, gerliron18
+===============================================================================
+Nitzan Haim, ID 315855189, nitzan.haim@mail.huji.ac.il
+Liron Gershuny, ID 308350503, liron.gershuny@mail.huji.ac.il
+===============================================================================
+
+                           Project 02 - Arithmetic Operations
+                           ----------------------------------
+  
+
+Submitted Files
+---------------
+README - This file.
+Add16.hdl - The Add16 chip.
+ALU.hdl - The ALU chip.
+ALU-nostat.hdl - The ALU-nostat chip.
+FullAdder.hdl - The FullAdder chip.
+HalfAdder.hdl - The HalfAdder chip.
+Inc16.hdl - The Inc16 chip.
+Mul.hdl - The Mul chip.
+ShiftLeft.hdl - The ShiftLeft chip.
+ShiftRight.hdl - The ShiftRight chip.
+
+Remarks
+-------
+* Any remark you may have!
