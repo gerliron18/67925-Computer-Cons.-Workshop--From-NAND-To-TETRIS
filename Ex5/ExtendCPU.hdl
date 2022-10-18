@@ -1,0 +1,62 @@
+// File name: projects/05/ExtendCPU.hdl
+
+/**
+* A helper chip for the CpuMul.hdl chip. Identical to the regualr CPU, except it uses ExtendAlu instead of the regular ALU.
+*/
+
+CHIP ExtendCPU {
+
+    IN  inM[16],         // M value input  (M = contents of RAM[A])
+        instruction[16], // Instruction for execution
+        reset;           // Signals whether to re-start the current
+                         // program (reset==1) or continue executing
+                         // the current program (reset==0).
+
+    OUT outM[16],        // M value output
+        writeM,          // Write to M? 
+        addressM[15],    // Address in data memory (of M)
+        pc[15];          // address of next instruction
+
+    PARTS:
+    Not(in=instruction[15], out=isA);
+    Not(in=isA, out=isC);
+    Mux16(a=aluRes, b=instruction, sel=isA, out=firstMuxOut);
+
+    Or(a=isA, b=instruction[5], out=loadAReg);
+    ARegister(in=firstMuxOut, load=loadAReg, out=ARegOut, out[0..14]=addressM);
+
+    And(a=isC, b=instruction[12], out=selSecondMux);
+    Mux16(a=ARegOut, b=inM, sel=selSecondMux, out=secondMuxOut);
+
+    And(a=isC, b=instruction[4], out=loadDReg);
+    DRegister(in=aluRes, load=loadDReg, out=DRegOut);
+
+    ExtendAlu(x=DRegOut,y=secondMuxOut,instruction=instruction[6..14],out=aluRes, out=outM, zr=zr, ng=ng);
+
+    And(a=isC, b=instruction[3], out=writeM);
+
+    Not(in=zr, out=notzr);
+    Not(in=ng, out=pos);
+    
+    And(a=instruction[2], b=instruction[1], out=j1Andj2);
+    And(a=j1Andj2, b=instruction[0], out=jmp);
+    And(a=isC, b=jmp, out=jmpC);
+
+    And(a=isC, b=instruction[0], out=isJ3);
+    And(a=pos, b=notzr, out=hardpos);
+    And(a=isJ3, b=hardpos, out=j3pos);
+    
+    And(a=isC, b=instruction[1], out=isJ2);
+    And(a=isJ2, b=zr, out=j2zr);
+
+    And(a=isC, b=instruction[2], out=isJ1);
+    And(a=isJ1, b=ng, out=j1ng);
+
+    Or(a=j3pos, b=j2zr, out=temp);
+    Or(a=temp, b=j1ng, out=conditionalHolds);
+    Or(a=conditionalHolds, b=jmpC, out=loadPC);
+
+    Not(in=loadPC, out=incPC);
+    PC(in=ARegOut, load=loadPC, inc=incPC, reset=reset, out[0..14]=pc);
+
+}
